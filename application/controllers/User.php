@@ -29,29 +29,18 @@ class User extends CI_Controller {
 			if($user_data !== FALSE)
 			{
 				$user_id = $user_data['user_id'];
-				$user_type = $this->user_model->get_user_type($user_id);
-				$type = $user_type[0]['user_type'];
-				$user_location = $user_type[0]['location'];
-				$rm = $user_type[0]['rm'];
+				
 				// echo $rm;die;
 				// echo "logged_in" . $user_id;echo $type;die;
 				// die();
 				
 				$this->session->set_userdata("user_id", $user_id);			
-				$ty = $this->session->set_userdata("user_type", $type);
 				$this->session->set_userdata("user_name", $username);
-				$this->session->set_userdata("location", $user_location);
-				$this->session->set_userdata("rm", $rm);
 
 				$this->session->set_userdata("username", $user_data['user_name']);
-				if ($type == 'User'){
+				
 					redirect('pages/view');
-				}elseif ($type == 'Branch'){
-					redirect('pages/view');
-				}elseif ($type == 'Admin'){
-					redirect('pages/view');
-				}
-						
+
 			}else{
 				$this->session->set_flashdata('login_error', ' Invalid Login Details.');
 			}
@@ -101,8 +90,14 @@ class User extends CI_Controller {
 			        'status' =>1
 			    );
 			$insert_user = $this->user_model->insertUser($user_data);
-
-            $this->load->view('user/index'); 
+			if ($insert_user == true){
+				$this->session->set_flashdata('succ', ' User Successfully Registered.');
+				$this->load->view('user/register'); 
+			}else{
+				$this->session->set_flashdata('reg_error', '  Could not Register User');
+				$this->load->view('user/index'); 
+			}
+            
          } 
 	}
 

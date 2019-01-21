@@ -35,8 +35,26 @@
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
+<?php
+if($this->session->flashdata('succ')): 
+    // echo '<p class="alert alert-danger">'.$this->session->flashdata('session_error').'</p>'; 
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <span class="badge badge-pill badge-success">Congrats </span>'.$this->session->flashdata('succ').'
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+  endif; 
 
-
+  if($this->session->flashdata('reg_error')): 
+    // echo '<p class="alert alert-danger">'.$this->session->flashdata('login_error').'</p>'; 
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <span class="badge badge-pill badge-danger">Sorry!  </span>'.$this->session->flashdata('reg_error').'
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+  endif; ?>
             <div class="login-content">
                 <div class="login-logo">
                     <a href="index.html">

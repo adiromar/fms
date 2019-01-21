@@ -1,9 +1,7 @@
 <?php
 $user_id=$this->session->userdata('user_id');
-$user_type=$this->session->userdata('user_type');
 $username=$this->session->userdata('user_name');
-$dis=$this->session->userdata('location');
-$rm=$this->session->userdata('rm');
+
 // echo $rm;die;
 
 if($user_id != true ){
@@ -67,7 +65,7 @@ if($user_id != true ){
                     <li class="">
                         <a href="<?= base_url(); ?>pages/upload_files"> <i class="menu-icon fa fa-file"></i>Upload Files </a>
                     </li>
-                    
+
 <!--                     <h3 class="menu-title">User Management</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
@@ -122,7 +120,7 @@ if($user_id != true ){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile </a>
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Welcome, <?= $username ?> </a>
                                 <a class="nav-link" href="<?php echo base_url('user/logout');?>"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
