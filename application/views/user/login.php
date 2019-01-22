@@ -108,8 +108,8 @@ if($this->session->flashdata('session_error')):
                                 <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button>
                             </div> -->
                         </div>
-                        <div class="register-link m-t-15 text-center">
-                            <p>Don't have account ? <a href="<?= base_url() ?>user/register"> Sign Up Here</a></p>
+                        <div class="m-t-15 text-center">
+                            <p>Don't have account ? <a class="btn btn-primary col-md-3" href="<?= base_url() ?>user/register"> Sign Up</a></p>
                         </div>
                     </form>
                 </div>

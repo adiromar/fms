@@ -31,6 +31,9 @@
     p{
         color: red;
     }
+    .login_btn{
+        color: #fff !important;
+    }
 </style>
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
@@ -95,7 +98,7 @@ if($this->session->flashdata('succ')):
                             </div> -->
                         </div>
                         <div class="register-link m-t-15 text-center">
-                            <p>Already a User.<a href="<?= base_url() ?>user/index"> Login</a></p>
+                            <h5>Already a User <a class="btn btn-primary col-md-3 login_btn" href="<?= base_url() ?>user/index"> Login</a></h5>
                         </div>
                     </form>
                 </div>
